@@ -10,8 +10,9 @@ public class Queue {
 
     void enqueue(int data){
         if((this.rear+1)%arr.length != front){
-            arr[rear+1] = data;
-            rear = rear+1;
+            
+            rear = (this.rear+1)%arr.length;
+            arr[rear] = data;
             if(rear == 0 && front==-1){
                 front=0;
             }
@@ -59,7 +60,15 @@ public class Queue {
         q.enqueue(20);
         q.enqueue(30);
         q.enqueue(40);
+        
         q.dequeue();
+        q.enqueue(50);
+        q.enqueue(60);
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        q.enqueue(70);
         System.out.println(q.top());
         System.out.println(q.size());
         
